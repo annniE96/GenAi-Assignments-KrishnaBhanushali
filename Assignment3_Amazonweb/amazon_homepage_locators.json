@@ -1,0 +1,127 @@
+{
+  "site": "Amazon.com",
+  "url": "https://www.amazon.com/",
+  "source": "Amazon US homepage snapshot captured on 2026-07-22",
+  "locators": [
+    {
+      "name": "homepage_logo",
+      "type": "link",
+      "selector": "a[href='/ref=nav_logo']",
+      "notes": "Amazon logo home link"
+    },
+    {
+      "name": "deliver_to_button",
+      "type": "button",
+      "selector": "button[aria-label^='Deliver to']",
+      "notes": "Shipping location / address chooser"
+    },
+    {
+      "name": "search_department_dropdown",
+      "type": "combobox",
+      "selector": "select#searchDropdownBox",
+      "notes": "Search category selector"
+    },
+    {
+      "name": "search_input",
+      "type": "searchbox",
+      "selector": "input#twotabsearchtextbox",
+      "notes": "Main Amazon search field"
+    },
+    {
+      "name": "search_submit",
+      "type": "button",
+      "selector": "input#nav-search-submit-button",
+      "notes": "Search submit button"
+    },
+    {
+      "name": "language_selector",
+      "type": "link",
+      "selector": "a[href*='customer-preferences/edit'][href*='topnav_lang_ais']",
+      "notes": "Language / country shopping preferences"
+    },
+    {
+      "name": "account_lists",
+      "type": "link",
+      "selector": "a#nav-link-accountList",
+      "notes": "Sign in / Account & Lists"
+    },
+    {
+      "name": "returns_orders",
+      "type": "link",
+      "selector": "a#nav-orders",
+      "notes": "Returns & Orders"
+    },
+    {
+      "name": "cart",
+      "type": "link",
+      "selector": "a#nav-cart",
+      "notes": "Shopping cart"
+    },
+    {
+      "name": "all_categories_menu",
+      "type": "button",
+      "selector": "#nav-hamburger-menu",
+      "notes": "All categories / hamburger menu"
+    },
+    {
+      "name": "today_deals",
+      "type": "link",
+      "selector": "a[href*='/gp/goldbox']",
+      "notes": "Today's Deals"
+    },
+    {
+      "name": "prime_video",
+      "type": "link",
+      "selector": "a[href*='Amazon-Video']",
+      "notes": "Prime Video"
+    },
+    {
+      "name": "gift_cards",
+      "type": "link",
+      "selector": "a[href*='/gift-cards/']",
+      "notes": "Gift Cards"
+    },
+    {
+      "name": "sell",
+      "type": "link",
+      "selector": "a[href*='node=12766669011']",
+      "notes": "Sell"
+    },
+    {
+      "name": "customer_service",
+      "type": "link",
+      "selector": "a[href*='nodeId=508510']",
+      "notes": "Customer Service"
+    },
+    {
+      "name": "registry",
+      "type": "link",
+      "selector": "a[href*='node=16115931011']",
+      "notes": "Registry"
+    },
+    {
+      "name": "hero_carousel_previous",
+      "type": "button",
+      "selector": "button[aria-label='Previous slide']",
+      "notes": "Hero banner previous slide"
+    },
+    {
+      "name": "hero_carousel_next",
+      "type": "button",
+      "selector": "button[aria-label='Next slide']",
+      "notes": "Hero banner next slide"
+    },
+    {
+      "name": "shop_back_to_school_hero",
+      "type": "link",
+      "selector": "a[href*='node=121171061011']",
+      "notes": "Top hero promotion"
+    },
+    {
+      "name": "back_to_top",
+      "type": "button",
+      "selector": "button[aria-label='Back to top']",
+      "notes": "Scroll back to top"
+    }
+  ]
+}
