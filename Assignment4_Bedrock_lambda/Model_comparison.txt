@@ -1,0 +1,226 @@
+TEST AUTOMATION MODEL EVALUATION REPORT
+=======================================
+
+Subject: Amazon Nova Lite vs Meta Llama 3 70B for UI Test Automation (Playwright Python)
+
+Executive Summary
+-----------------
+Amazon Nova Lite is the clear winner for this test automation use case.
+
+While both models understood the business requirement and identified relevant promo code edge cases, Nova Lite generated modern, maintainable, and executable Playwright code aligned with current automation best practices.
+
+In contrast, Llama 3 70B produced code containing outdated Playwright patterns, weak locator strategies, and implementation issues that would require significant refactoring before being used in a production automation framework.
+
+Overall Verdict: Amazon Nova Lite Outperformed Meta Llama 3 70B
+
+Evaluation Criteria
+-------------------
+
+| Feature / Criteria | Amazon Nova Lite | Meta Llama 3 70B | Winner |
+|-------------------|------------------|------------------|---------|
+| Edge Case Quality | Detailed scenarios with positive and negative validation outcomes | High-level scenarios with limited validation details | Nova Lite |
+| Playwright Syntax & Imports | Correct Playwright structure using sync_playwright and expect | Incorrect initialization and incomplete setup | Nova Lite |
+| Locator Strategy | Uses stable data-test attributes | Uses CSS selectors and name attributes susceptible to UI changes | Nova Lite |
+| API Modernity | Uses page.locator() and auto-waiting assertions | Uses page.query_selector() and ElementHandle patterns | Nova Lite |
+| Wait Strategy | Dynamic waits with wait_for_function and expect() | Static DOM queries and fragile text matching | Nova Lite |
+| Production Readiness | Enterprise-grade, maintainable implementation | Requires significant fixes before execution | Nova Lite |
+
+Final Score: Nova Lite wins across all evaluated categories.
+
+Detailed Technical Analysis
+===========================
+
+1. Edge Case Coverage
+---------------------
+
+Amazon Nova Lite provided comprehensive test scenarios with clear expected outcomes and validation logic.
+
+Examples:
+- Expired promo code
+- Boundary cart value validation
+- Promo code stacking behavior
+- Whitespace handling
+- Promo code removal
+
+Each scenario included expected system behavior for both successful and failure conditions.
+
+Meta Llama 3 70B identified similar scenarios but described them at a much higher level without sufficient validation detail. Negative test outcomes and failure assertions were largely missing.
+
+Winner: Amazon Nova Lite
+
+------------------------------------------------------------
+
+2. Playwright Best Practices
+----------------------------
+
+Nova Lite follows modern Playwright recommendations:
+
+- Uses page.locator()
+- Uses expect() assertions
+- Uses Playwright synchronization capabilities
+- Avoids direct ElementHandle manipulation
+
+Example:
+
+page.locator("[data-test='cart-total-amount']")
+expect(discount_row).to_contain_text("-$10.00")
+
+Llama 3 70B relies on:
+
+page.query_selector()
+
+This returns static ElementHandles and bypasses Playwright's automatic waiting and retry mechanisms.
+
+These patterns are considered legacy approaches and increase test flakiness.
+
+Winner: Amazon Nova Lite
+
+------------------------------------------------------------
+
+3. Locator Strategy Evaluation
+------------------------------
+
+Amazon Nova Lite uses dedicated automation attributes:
+
+[data-test='cart-total-amount']
+[data-test='promo-code-input']
+[data-test='apply-promo-button']
+
+Advantages:
+- Independent of styling changes
+- Resistant to UI redesigns
+- Standard enterprise automation practice
+- Easier test maintenance
+
+Meta Llama 3 70B uses:
+
+input[name='promo-code']
+div.final-price
+
+Risks:
+- CSS classes frequently change
+- Refactoring UI styles will break tests
+- Reduced long-term maintainability
+
+Example:
+
+If "div.final-price" is renamed to "div.total-amount",
+the automation script fails immediately.
+
+Winner: Amazon Nova Lite
+
+------------------------------------------------------------
+
+4. Wait and Synchronization Strategy
+------------------------------------
+
+Nova Lite uses dynamic synchronization:
+
+page.wait_for_function(
+    "locator => locator.textContent() !== initial"
+)
+
+Benefits:
+- Waits only as long as necessary
+- Adaptable to varying response times
+- Reduces flaky failures
+
+It also leverages expect() assertions which automatically poll until conditions are met.
+
+Llama 3 70B uses:
+
+page.wait_for_function(
+    "document.querySelector('div.final-price').textContent.includes('$90.00')"
+)
+
+Problems:
+- Hardcoded DOM dependency
+- Fragile string matching
+- Less reusable
+- More prone to timing failures
+
+Winner: Amazon Nova Lite
+
+------------------------------------------------------------
+
+5. Script Executability Review
+------------------------------
+
+Nova Lite produced a script that is largely executable and follows the expected Playwright Python structure.
+
+Strengths:
+- Structured test function
+- Browser cleanup via try/finally
+- Clear assertions
+- Proper Playwright imports
+
+Llama 3 70B contains multiple execution issues.
+
+Issue #1:
+Incorrect Playwright initialization
+
+Example:
+
+import playwright
+browser = playwright.chromium.launch()
+
+This will fail because Playwright Python requires use of:
+
+with sync_playwright() as p:
+
+or an async equivalent.
+
+Issue #2:
+page.goto() syntax problem
+
+The generated snippet omitted proper string formatting around the target URL.
+
+Issue #3:
+No framework-level test organization
+
+The code is written as a loose script rather than a maintainable automated test.
+
+Winner: Amazon Nova Lite
+
+------------------------------------------------------------
+
+6. Maintainability Assessment
+-----------------------------
+
+Amazon Nova Lite demonstrates awareness of real-world automation framework design by:
+
+- Using stable locators
+- Providing meaningful assertions
+- Including cleanup logic
+- Supporting future extensibility
+
+The solution can be integrated into an enterprise test suite with minimal modification.
+
+Meta Llama 3 70B appears more like a translated browser automation script rather than true Playwright-based test automation.
+
+Significant refactoring would be required before production use.
+
+Winner: Amazon Nova Lite
+
+Final Conclusion
+================
+
+Amazon Nova Lite demonstrates substantially stronger capability for modern UI test automation.
+
+Key strengths include:
+
+✓ Modern Playwright implementation
+✓ Production-ready coding practices
+✓ Robust locator strategy
+✓ Reliable synchronization methods
+✓ Better maintainability
+✓ More comprehensive test design
+
+Meta Llama 3 70B successfully understood the testing scenario but produced automation code that reflects outdated browser automation patterns and contains execution risks.
+
+Final Verdict:
+--------------
+Amazon Nova Lite decisively outperformed Meta Llama 3 70B for this Playwright-based checkout promo code automation use case.
+
+Recommendation:
+Use Amazon Nova Lite when generating Playwright automation, UI test cases, and enterprise-quality testing assets where maintainability, reliability, and adherence to modern automation practices are important.

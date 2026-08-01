@@ -1,0 +1,4 @@
+bedrock-agentcore
+langchain
+langchain-aws
+requests

@@ -1,0 +1,126 @@
+RAG BOT INFERENCE REPORT
+
+Project: QA/UAT RAG Chatbot using Amazon Bedrock
+Date: 30-Jul-2026
+
+OVERVIEW
+The Retrieval-Augmented Generation (RAG) chatbot was developed using Amazon Bedrock Knowledge Bases, AWS Lambda, Amazon API Gateway, Amazon S3, and Meta Llama 3 8B Instruct. The system retrieves relevant information from UAT and QA documents and generates grounded responses.
+
+ARCHITECTURE
+User -> API Gateway -> Lambda -> Bedrock Knowledge Base -> S3 Documents
+                                      -> Bedrock Llama 3 8B
+
+KNOWLEDGE BASE DETAILS
+Knowledge Base ID: BD4V95U7UE
+Model: meta.llama3-8b-instruct-v1:0
+Source Document: s3://rag-bucket-krishna/UAT_RAG_Knowledge_Base.txt
+
+=====================================================
+INFERENCE TEST 1
+=====================================================
+Question:
+What is UAT?
+
+Result:
+Based on the provided context, UAT stands for User Acceptance Testing, which is the final phase of testing before production deployment. It is performed by business users, product owners, or stakeholders to validate that the solution meets business requirements.
+
+Observation:
+- Successfully retrieved document content.
+- Generated grounded response.
+- Source citations returned.
+
+Status: PASS
+
+=====================================================
+INFERENCE TEST 2
+=====================================================
+Question:
+What are exit criteria?
+
+Latency:
+995 ms
+
+HTTP Status:
+200
+
+Response:
+According to the provided context, exit criteria are:
+
+- All critical scenarios executed.
+- No open Severity 1 defects.
+- Business sign-off received.
+
+Source Reference:
+Source 4
+Document: UAT_RAG_Knowledge_Base.txt
+
+Token Usage:
+Input Tokens: 1151
+Output Tokens: 54
+Total Tokens: 1205
+
+Observation:
+The answer was correctly extracted from the UAT Overview section under Exit Criteria.
+
+Status: PASS
+
+=====================================================
+INFERENCE TEST 3
+=====================================================
+Question:
+Who performs UAT?
+
+Latency:
+1129 ms
+
+HTTP Status:
+200
+
+Response:
+According to the provided context, the individuals who perform UAT are:
+
+- Business users
+- Product owners
+- Stakeholders
+
+These users validate business requirements, verify end-to-end business flows, identify implementation gaps, and ensure production readiness.
+
+Source References:
+Source 2
+Source 9
+
+Document:
+UAT_RAG_Knowledge_Base.txt
+
+Token Usage:
+Input Tokens: 1151
+Output Tokens: 70
+Total Tokens: 1221
+
+Observation:
+Response accurately matched the knowledge base document.
+
+Status: PASS
+
+=====================================================
+EVALUATION SUMMARY
+=====================================================
+
+Total Questions Tested: 3
+Successful Responses: 3
+Failed Responses: 0
+Success Rate: 100%
+
+Average Latency:
+(2519 + 995 + 1129) / 3 = 1548 ms
+
+Grounded Responses: Yes
+Source Citations Provided: Yes
+Document Retrieval Working: Yes
+Knowledge Base Retrieval Working: Yes
+Hallucinations Observed: No
+
+CONCLUSION
+The Bedrock-based RAG chatbot successfully answered QA/UAT-related questions using information retrieved from the Amazon Bedrock Knowledge Base. Responses were grounded in the uploaded document stored in Amazon S3 and included source references. The end-to-end flow involving API Gateway, Lambda, Bedrock Knowledge Base, and Meta Llama 3 functioned successfully.
+
+Final Result: PASSED
