@@ -1,0 +1,6 @@
+bedrock-agentcore
+langchain
+langchain-community
+langchain-aws
+langchain-text-splitters
+pypdf

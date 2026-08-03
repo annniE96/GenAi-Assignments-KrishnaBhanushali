@@ -1,0 +1,23 @@
+{
+  "cluster": "multiagent-cluster",
+  "serviceName": "multiagent-service",
+  "taskDefinition": "multiagent-task",
+  "launchType": "FARGATE",
+  "desiredCount": 1,
+  "networkConfiguration": {
+    "awsvpcConfiguration": {
+      "subnets": [
+        "subnet-00825b386b1fc06b3",
+        "subnet-0007d92c4eb7832b8"
+      ],
+      "securityGroups": [
+        "sg-002dbacdf679011b2"
+      ],
+      "assignPublicIp": "ENABLED"
+    }
+  },
+  "deploymentConfiguration": {
+    "maximumPercent": 200,
+    "minimumHealthyPercent": 50
+  }
+}

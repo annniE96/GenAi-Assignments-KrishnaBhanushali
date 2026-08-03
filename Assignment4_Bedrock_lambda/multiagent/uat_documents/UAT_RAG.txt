@@ -1,0 +1,216 @@
+RAG Knowledge Base: UAT Testing Repository
+
+DOCUMENT PURPOSE
+This knowledge base is designed for Retrieval-Augmented Generation (RAG) applications focused on User Acceptance Testing (UAT), QA testing, test management, defect handling, and release validation.
+
+==================================================
+1. UAT OVERVIEW
+==================================================
+
+User Acceptance Testing (UAT) is the final phase of testing before production deployment. It is performed by business users, product owners, or stakeholders to validate that the solution meets business requirements.
+
+Objectives:
+- Validate business requirements.
+- Confirm end-to-end business flows.
+- Identify gaps between requirements and implementation.
+- Ensure readiness for production.
+
+Entry Criteria:
+- SIT completed.
+- Critical defects resolved.
+- Test environment available.
+- Test data prepared.
+
+Exit Criteria:
+- All critical scenarios executed.
+- No open Severity 1 defects.
+- Business sign-off received.
+
+==================================================
+2. TEST CASE TEMPLATE
+==================================================
+
+Fields:
+- Test Case ID
+- Module
+- Requirement ID
+- Scenario
+- Preconditions
+- Test Steps
+- Expected Result
+- Actual Result
+- Status
+
+Example:
+
+Test Case ID: UAT_LOGIN_001
+Module: Authentication
+Scenario: Verify successful login
+Precondition: User account exists
+Steps:
+1. Open login page
+2. Enter valid username
+3. Enter valid password
+4. Click Login
+Expected Result:
+User is redirected to dashboard.
+Status: Pass
+
+==================================================
+3. DEFECT MANAGEMENT
+==================================================
+
+Severity Levels:
+
+Severity 1 (Critical)
+- System unavailable
+- Data corruption
+- Payment failure
+
+Severity 2 (High)
+- Major business process broken
+- No workaround available
+
+Severity 3 (Medium)
+- Functional issue with workaround
+
+Severity 4 (Low)
+- Cosmetic issue
+- UI alignment problem
+
+Defect Lifecycle:
+New -> Assigned -> In Progress -> Fixed -> Retest -> Closed
+
+==================================================
+4. SAMPLE BUSINESS FLOWS
+==================================================
+
+Login Process:
+1. User enters credentials.
+2. System validates user.
+3. Dashboard displayed.
+
+Order Creation:
+1. User selects product.
+2. User enters quantity.
+3. User confirms order.
+4. System generates order number.
+
+Payment Flow:
+1. User selects payment method.
+2. Payment gateway validates transaction.
+3. Confirmation displayed.
+
+==================================================
+5. REGRESSION TESTING
+==================================================
+
+Regression testing ensures that existing functionality works after changes.
+
+Recommended Regression Areas:
+- Authentication
+- User Management
+- Reporting
+- Integrations
+- Notifications
+- Payments
+
+==================================================
+6. TEST EXECUTION STATUS
+==================================================
+
+Status Definitions:
+Pass = Expected result achieved.
+Fail = Expected result not achieved.
+Blocked = Cannot execute test.
+Not Run = Test not executed.
+
+Execution Metrics:
+Pass Percentage = Passed Tests / Executed Tests * 100
+
+Example:
+Passed = 90
+Failed = 5
+Blocked = 5
+Pass Percentage = 90%
+
+==================================================
+7. TEST DATA MANAGEMENT
+==================================================
+
+Guidelines:
+- Use masked production data whenever possible.
+- Create positive and negative test data.
+- Maintain separate datasets for each test cycle.
+
+Examples:
+Valid User: test.user@example.com
+Invalid User: invalid.user@example.com
+
+==================================================
+8. UAT SIGN-OFF CRITERIA
+==================================================
+
+Business stakeholders must verify:
+- All critical requirements validated.
+- Open defects accepted or resolved.
+- Test evidence attached.
+- Regulatory requirements satisfied.
+
+==================================================
+9. FREQUENTLY ASKED QUESTIONS
+==================================================
+
+Q: What is UAT?
+A: User Acceptance Testing validates business requirements before production.
+
+Q: Who performs UAT?
+A: Business users, product owners, and stakeholders.
+
+Q: What is the difference between SIT and UAT?
+A: SIT validates system integration. UAT validates business acceptance.
+
+Q: What is a blocker defect?
+A: A defect preventing test execution.
+
+Q: When is UAT completed?
+A: When exit criteria are met and stakeholders approve release.
+
+==================================================
+10. RELEASE READINESS CHECKLIST
+==================================================
+
+Checklist:
+- UAT completed
+- Defects reviewed
+- Regression completed
+- Sign-off received
+- Rollback plan prepared
+- Monitoring enabled
+- Support team notified
+
+Release Status Values:
+Ready
+Conditionally Ready
+Not Ready
+
+==================================================
+11. SAMPLE REQUIREMENTS
+==================================================
+
+REQ-001:
+Users shall log in using username and password.
+
+REQ-002:
+Users shall reset forgotten passwords.
+
+REQ-003:
+System shall generate order confirmation.
+
+REQ-004:
+System shall send email notifications.
+
+REQ-005:
+Administrators shall view audit logs.
+
+END OF DOCUMENT
